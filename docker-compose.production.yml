@@ -14,7 +14,7 @@ services:
       - pg_data:/var/lib/postgresql/data
 
   backend:
-    build: ./backend/
+    image: idelfazletdinov/kittygram_backend:latest
     container_name: django
     env_file: .env
     volumes:
@@ -25,14 +25,14 @@ services:
 
   frontend:
     env_file: .env
-    build: ./frontend/
+    image: idelfazletdinov/kittygram_frontend
     container_name: react
     command: cp -r /app/build/. /static/
     volumes:
       - static:/static
 
   gateway:
-    build: ./nginx/
+    image: idelfazletdinov/kittygram_gateway
     container_name: nginx
     env_file: .env
     ports:
