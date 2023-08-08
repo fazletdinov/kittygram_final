@@ -25,14 +25,14 @@ services:
 
   frontend:
     env_file: .env
-    image: idelfazletdinov/kittygram_frontend
+    image: idelfazletdinov/kittygram_frontend:latest
     container_name: react
     command: cp -r /app/build/. /static/
     volumes:
       - static:/static
 
   gateway:
-    image: idelfazletdinov/kittygram_gateway
+    image: idelfazletdinov/kittygram_gateway:latest
     container_name: nginx
     env_file: .env
     ports:
